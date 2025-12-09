@@ -1059,6 +1059,8 @@
 			$models.map((m) => m.id).includes(modelId) ? modelId : ''
 		);
 
+
+
 		const chatInput = document.getElementById('chat-input');
 		setTimeout(() => chatInput?.focus(), 0);
 	};
@@ -1300,6 +1302,7 @@
 				model: modelId,
 				modelName: model.name ?? model.id,
 				modelIdx: 0,
+				systemPrompt: params.system,
 				timestamp: Math.floor(Date.now() / 1000)
 			};
 
@@ -2508,6 +2511,7 @@
 									{history}
 									{taskIds}
 									{selectedModels}
+							        {params}
 									bind:files
 									bind:prompt
 									bind:autoScroll

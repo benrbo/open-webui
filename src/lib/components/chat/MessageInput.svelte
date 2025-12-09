@@ -108,6 +108,7 @@
 	export let imageGenerationEnabled = false;
 	export let webSearchEnabled = false;
 	export let codeInterpreterEnabled = false;
+	export let params = {};
 
 	let showInputVariablesModal = false;
 	let inputVariablesModalCallback = (variableValues) => {};
@@ -1435,7 +1436,19 @@
 											<PlusAlt className="size-5.5" />
 										</div>
 									</InputMenu>
-
+{#if files.length > 0}
+	<div class="mt-2 px-2">
+		<label class="block text-gray-700 dark:text-gray-200 mb-1">
+			System Prompt 
+		</label>
+		<textarea
+			bind:value={params.system}
+			placeholder="כתוב כאן את ההנחיות למודל"
+			class="w-full p-2 border rounded-md dark:bg-gray-800 dark:text-white"
+			rows="3"
+		></textarea>
+	</div>
+{/if}
 									{#if showWebSearchButton || showImageGenerationButton || showCodeInterpreterButton || showToolsButton || (toggleFilters && toggleFilters.length > 0)}
 										<div
 											class="flex self-center w-[1px] h-4 mx-1 bg-gray-200/50 dark:bg-gray-800/50"
